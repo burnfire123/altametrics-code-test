@@ -12,6 +12,14 @@ import { User } from '@prisma/client';
 @Injectable()
 export class UserService implements IUserService {
   constructor(@Inject(PrismaService) private prismaService: PrismaService) {}
+  async authorize(token: string): Promise<boolean> {
+    const user = await this.prismaService.user.findFirst({
+      where: {
+        token,
+      },
+    });
+    return !!user;
+  }
   async register(email: string, name: string, password: string): Promise<User> {
     const existingUser = await this.prismaService.user.findFirst({
       where: {
