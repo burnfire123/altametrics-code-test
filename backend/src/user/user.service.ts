@@ -31,12 +31,7 @@ export class UserService implements IUserService {
     });
   }
   async login(email: string, password: string): Promise<string> {
-    //   To be moved to controller
     const loginError = new UnauthorizedException('Login failed');
-    if (!(email && password)) {
-      throw loginError;
-    }
-    //
     const user = await this.prismaService.user.findFirst({
       where: {
         email,
