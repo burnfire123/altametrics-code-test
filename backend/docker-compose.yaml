@@ -1,0 +1,15 @@
+version: '3.9'
+
+volumes:
+  postgres_data:
+
+services:
+  postgres:
+    image: postgres
+    container_name: altametrics-postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    env_file:
+      - .env
