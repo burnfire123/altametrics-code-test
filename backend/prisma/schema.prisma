@@ -10,6 +10,9 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Test {
-  id  Int   @id @default(autoincrement())
+model Invoice {
+  id  Int @id @default(autoincrement())
+  amount Int
+  due_date DateTime
+  details String
 }
