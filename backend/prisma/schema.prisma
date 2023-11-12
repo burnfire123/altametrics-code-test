@@ -11,8 +11,19 @@ datasource db {
 }
 
 model Invoice {
-  id  Int @id @default(autoincrement())
-  amount Int
+  id       Int      @id @default(autoincrement())
+  amount   Int
   due_date DateTime
-  details String
+  details  String
+  User     User     @relation(fields: [userId], references: [id])
+  userId   Int
+}
+
+model User {
+  id       Int       @id @default(autoincrement())
+  email    String    @unique()
+  password String
+  name     String
+  token    String    @default(uuid())
+  invoices Invoice[]
 }
