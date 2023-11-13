@@ -25,16 +25,16 @@ This is a project I wrote in attempt to establish a collaboration with Altametri
 
 ## Installation
 1. Clone the repository in a folder
-1. Create a `.env` file with the following structure:
+2. Create a `.env` file with the following structure:
 ```
 POSTGRES_DATABASE="your_db_name"
 POSTGRES_USER="your_username"
 POSTGRES_PASSWORD="your_password"
 DATABASE_URL="postgresql://your-db-url"
 ```
-2. Run docker-compose as follows to start the database:
+3. Run docker-compose as follows to start the database:
 `sudo docker-compose up -d`
-3. Build the project:
+4. Build the project:
 `npm build`
 
 ## Usage
@@ -73,4 +73,4 @@ All endpoints, except `POST /auth/login` expect that you provide an authorizatio
   - Responses:  
     - 403, if provided token isn't valid  
     - 409, if provided `id` isn't a number  
-    - 200, and as response body, an array of all invoices
+    - 200, and as response body, the invoice with that id, along with information about its user
