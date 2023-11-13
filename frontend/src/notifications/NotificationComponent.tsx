@@ -4,7 +4,7 @@ import { AppDispatch } from "../store";
 import { notificationSlice } from "./notification.slice";
 
 export function NotificationComponent() {
-	const { open, message, severity } = useSelector(state => state.notification);
+	const { open, message, severity } = useSelector((state: any) => state.notification);
 	const dispatch = useDispatch<AppDispatch>();
 	const onClose = () => dispatch(notificationSlice.actions.closeSnackbar());
 	return <Snackbar onClose={onClose} autoHideDuration={5000} open={open} anchorOrigin={{ vertical: "top", horizontal: "center" }}>

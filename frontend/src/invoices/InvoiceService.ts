@@ -40,7 +40,7 @@ export const getAllInvoicesThunk = createAsyncThunk("invoice/getAll", async (tok
 	try {
 		const result = await invoiceService.getAll(token);
 		return result;
-	} catch (err) {
+	} catch (err: any) {
 		thunkAPI.dispatch(notificationSlice.actions.displayError(err.response.data.message));
 	}
 });
@@ -52,7 +52,7 @@ export const findByIdThunk = createAsyncThunk("invoice/findById", async (data: {
 	try {
 		const result = await invoiceService.findById(data.id, data.token);
 		return result;
-	} catch (err) {
+	} catch (err: any) {
 		thunkAPI.dispatch(notificationSlice.actions.displayError(err.response.data.message));
 	}
 });

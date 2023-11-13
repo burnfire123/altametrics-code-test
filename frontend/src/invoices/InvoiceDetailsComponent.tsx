@@ -1,11 +1,11 @@
-import { Box, Dialog, DialogContent, DialogTitle, IconButton, Modal, Paper, Table, TableBody, TableCell, TableRow, Typography } from "@mui/material";
+import { Box, Dialog, DialogContent, DialogTitle, IconButton, Modal, Table, TableBody, TableCell, TableRow } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import CloseIcon from '@mui/icons-material/Close';
 import { AppDispatch } from "../store";
 import { invoiceSlice } from "./invoices.slice";
 
 export function InvoiceDetailsComponent() {
-	const { selected } = useSelector(state => state.invoice);
+	const { selected } = useSelector((state: any) => state.invoice);
 	const dispatch = useDispatch<AppDispatch>();
 	const open = !!selected;
 	function closeModal() {

@@ -9,8 +9,8 @@ import { AppDispatch } from "../store";
 
 export function InvoicesComponent() {
 	const dispatch = useDispatch<AppDispatch>();
-	const { all: invoices } = useSelector(state => state.invoice);
-	const { token } = useSelector(state => state.user);
+	const { all: invoices } = useSelector((state: any) => state.invoice);
+	const { token } = useSelector((state: any) => state.user);
 	const navigate = useNavigate();
 	useEffect(() => {
 		dispatch(getAllInvoicesThunk(token));

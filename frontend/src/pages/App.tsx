@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 
 function App() {
-  const { token } = useSelector(state => state.user);
+  const { token } = useSelector((state: any) => state.user);
   const navigate = useNavigate();
   React.useEffect(() => {
     if (!token) {
