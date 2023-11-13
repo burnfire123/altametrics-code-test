@@ -1,3 +1,4 @@
+import { Button } from "@mui/material";
 import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
@@ -11,6 +12,7 @@ function App() {
     }
   })
   return <>
+    <Button variant="outlined" onClick={()=>navigate("/invoices")}>Go to Invoices list</Button>
   </>
 }
 
