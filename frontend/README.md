@@ -20,4 +20,4 @@ This is a project I wrote in attempt to establish a collaboration with Altametri
 VITE_BACKEND_URL="http://url-to-backend"
 ```
 3. Build the project:
-`npm build`
+`npm run build`

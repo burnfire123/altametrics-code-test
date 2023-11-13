@@ -35,7 +35,7 @@ DATABASE_URL="postgresql://your-db-url"
 3. Run docker-compose as follows to start the database:
 `sudo docker-compose up -d`
 4. Build the project:
-`npm build`
+`npm run build`
 
 ## Usage
 ### Normal usage
