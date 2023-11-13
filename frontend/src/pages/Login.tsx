@@ -1,6 +1,7 @@
 import { Button, Grid, TextField } from "@mui/material";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router";
 import { AppDispatch } from "../store";
 import { loginUserThunk } from "../users/UserService";
 
@@ -8,8 +9,12 @@ export function LoginComponent() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const dispatch = useDispatch<AppDispatch>();
-	function loginUser() {
-		dispatch(loginUserThunk({ email, password }));
+	const navigate = useNavigate();
+	async function loginUser() {
+		const { payload } = await dispatch(loginUserThunk({ email, password }));
+		if (payload) {
+			navigate("/app");
+		}
 	}
 	return <Grid container direction={"column"} alignItems="center"
 		alignSelf={"center"}
