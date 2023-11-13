@@ -40,6 +40,10 @@ export function InvoiceDetailsComponent() {
 							<TableCell variant="head">Due date</TableCell>
 							<TableCell>{selected.due_date}</TableCell>
 						</TableRow>
+						<TableRow>
+							<TableCell variant="head">Created by</TableCell>
+							<TableCell>{`${selected.User.name} (${selected.User.email})`}</TableCell>
+						</TableRow>
 					</TableBody>
 				</Table>
 			</DialogContent>
