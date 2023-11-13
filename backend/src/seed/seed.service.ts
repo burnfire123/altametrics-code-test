@@ -20,7 +20,23 @@ export class SeedService implements ISeedService {
       data: {
         userId: user.id,
         amount: 5,
-        details: 'invoice details',
+        details: 'first invoice details',
+        due_date: new Date(),
+      },
+    });
+    await this.prismaService.invoice.create({
+      data: {
+        userId: user.id,
+        amount: 15,
+        details: 'other invoice details',
+        due_date: new Date(),
+      },
+    });
+    await this.prismaService.invoice.create({
+      data: {
+        userId: user.id,
+        amount: 42,
+        details: 'third',
         due_date: new Date(),
       },
     });
