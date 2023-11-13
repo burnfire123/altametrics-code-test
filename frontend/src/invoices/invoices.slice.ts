@@ -19,9 +19,6 @@ export const invoiceSlice = createSlice({
 		resetSelected: (state) => {
 			state.selected = undefined;
 		},
-		setSelected: (state, action) => {
-			state.selected = action.payload;
-		}
 	},
 	extraReducers: builder => {
 		builder.addCase(getAllInvoicesThunk.fulfilled, (state, action) => {

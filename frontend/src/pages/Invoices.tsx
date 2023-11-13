@@ -4,8 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { Invoice } from "../invoices/Invoice";
 import { InvoiceDetailsComponent } from "../invoices/InvoiceDetailsComponent";
-import { invoiceSlice } from "../invoices/invoices.slice";
-import { getAllInvoicesThunk } from "../invoices/InvoiceService";
+import { findByIdThunk, getAllInvoicesThunk } from "../invoices/InvoiceService";
 import { AppDispatch } from "../store";
 
 export function InvoicesComponent() {
@@ -22,7 +21,7 @@ export function InvoicesComponent() {
 		}
 	});
 	function selectInvoice(invoice: Invoice) {
-		dispatch(invoiceSlice.actions.setSelected(invoice));
+		dispatch(findByIdThunk({ id: invoice.id, token }));
 	}
 	return <>
 		<InvoiceDetailsComponent />
