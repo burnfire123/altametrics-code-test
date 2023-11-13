@@ -14,6 +14,17 @@ export class InvoiceService implements IInvoiceService {
       where: {
         id,
       },
+      include: {
+        User: {
+          select: {
+            password: false,
+            token: false,
+            email: true,
+            name: true,
+            id: true,
+          },
+        },
+      },
     });
   }
 }
