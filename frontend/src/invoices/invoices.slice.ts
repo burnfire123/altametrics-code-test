@@ -16,6 +16,12 @@ export const invoiceSlice = createSlice({
 	name: "invoice",
 	initialState,
 	reducers: {
+		resetSelected: (state) => {
+			state.selected = undefined;
+		},
+		setSelected: (state, action) => {
+			state.selected = action.payload;
+		}
 	},
 	extraReducers: builder => {
 		builder.addCase(getAllInvoicesThunk.fulfilled, (state, action) => {
