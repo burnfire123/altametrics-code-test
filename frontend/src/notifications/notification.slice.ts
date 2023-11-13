@@ -14,6 +14,12 @@ export const notificationSlice = createSlice({
 			state.open = true;
 			state.severity = "error";
 		},
+		displaySuccess: (state, action) => {
+			const { payload: message } = action;
+			state.message = message;
+			state.open = true;
+			state.severity = "success";
+		},
 		closeSnackbar: (state) => {
 			state.open = false;
 		}

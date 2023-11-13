@@ -1,21 +1,12 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit';
-
-export const authSlice = createSlice({
-	name: "auth",
-	initialState: {
-		token: localStorage.getItem("token"),
-	},
-	reducers: {
-		setToken: (state, action) => {
-			const { payload: value } = action;
-			localStorage.setItem("token", value);
-			state.token = value;
-		}
-	}
-});
+import { configureStore } from '@reduxjs/toolkit';
+import { notificationSlice } from './notifications/notification.slice';
+import { userSlice } from './users/user.slice';
 
 export const store = configureStore({
 	reducer: {
-		auth: authSlice.reducer,
+		user: userSlice.reducer,
+		notification: notificationSlice.reducer,
 	}
-})
+});
+
+export type AppDispatch = typeof store.dispatch;
